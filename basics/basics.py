@@ -226,6 +226,61 @@ print('Estonia' in  nordic_countries)
 # Check if 'Iceland' is a nordic country
 print('Iceland' in  nordic_countries)
 
+# Dictionaries
+
+# Create an empty dictionary called dog
+
+dog=dict()
+
+# Add name, color, breed, legs, age to the dog dictionary
+dog={
+'name':"BRUNO",
+'color':"Red",
+'breed':"maltese",
+'legs':4,
+'age':8
+}
+print(dog)
+print(type(dog))
+# Create a student dictionary and add first_name, last_name,
+#  gender, age, marital status, skills, country, city and address as keys for the dictionary
+student={
+   'first_name' :'Kabonge',
+   'last_name' :'Bella',
+   'gender' :'female',
+    'age' :21,
+    'marital_status' :'single',
+    'skills':['python','javascript','aviation','first aid'],
+    'country':'uganda',
+    'city':'entebbe',
+    'address':'lugonjo'
+}
+# Get the length of the student dictionary
+print(len(student))
+# Get the value of skills and check the data type, it should be a list
+
+
+print(student.get('skills'))
+print(type(student.get('skills')))
+
+
+# Modify the skills values by adding one or two skills
+new_skills=student['skills'].append('Communication')
+print(student.get('skills'))
+# Get the dictionary keys as a list
+print(student.keys())
+# Get the dictionary values as a list
+print(student.values())
+
+# Change the dictionary to a list of tuples using items() method
+print(student.items())
+# Delete one of the items in the dictionary
+del student["skills"]
+print(student)
+# Delete one of the dictionaries
+del dog
+
+
 
 
 
