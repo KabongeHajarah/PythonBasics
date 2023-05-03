@@ -86,30 +86,111 @@ for score in scores:
 
 
 
-# Check if the season is Autumn, Winter, Spring or Summer. If the user input is: September, October or November, the season is Autumn. December, January or February, the season is Winter. March, April or May, the season is Spring June, July or August, the season is Summer
+# Check if the season is Autumn, Winter, Spring or Summer.
+#  If the user input is: September, October or November, the season is Autumn.
+#  December, January or February, the season is Winter. March, April or May, 
+# the season is Spring June, July or August, the season is Summer
+def get_season(month):
+    if month in ['September', 'October', 'November']:
+        return 'Autumn'
+    elif month in ['December', 'January', 'February']:
+        return 'Winter'
+    elif month in ['March', 'April', 'May']:
+        return 'Spring'
+    elif month in ['June', 'July', 'August']:
+        return 'Summer'
+    else:
+        return 'Invalid input'
+
+month = input("Enter a month: ")
+season = get_season(month)
+print(f"The season for {month} is {season}")
+
+
+
+
 
 # The following list contains some fruits:
-
 # fruits = ['banana', 'orange', 'mango', 'lemon']
-# If a fruit doesn't exist in the list add the fruit to the list and print the modified list. If the fruit exists print('That fruit already exist in the list')
+# If a fruit doesn't exist in the list 
+# add the fruit to the list and print the modified list.
+#  If the fruit exists print('That fruit already exist in the list')
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruit=input('Enter fruit: ' )
+
+if(fruit not in fruits):
+   fruits.append(fruit)
+   print(fruits)
+else:
+    print("That fruit already exist in the list")
 
 # Exercises: Level 3
 # Here we have a person dictionary. Feel free to modify it!
+#  * Check if the person dictionary has skills key, 
+# if so print out the middle skill in the skills list.
+person={
+    'first_name': 'Asabeneh',
+    'last_name': 'Yetayeh',
+    'age': 250,
+    'country': 'Finland',
+    'is_marred': True,
+    'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
+    'address': {
+        'street': 'Space street',
+        'zipcode': '02210'
+    }
+    }
+if 'skills' in person:
+    skills_list=person['skills']
+    if len(skills_list)%2==0:
+        middle_skill_index=len(skills_list)//2-1
+    else:
+        middle_skill_index=len(skills_list)//2
+        middle_skill = skills_list[middle_skill_index]
+        print(f"The middle skill in the skills list is: {middle_skill}")
+else:
+    print("The person dictionary does not have a skills key")
+        
 
-#         person={
-#     'first_name': 'Asabeneh',
-#     'last_name': 'Yetayeh',
-#     'age': 250,
-#     'country': 'Finland',
-#     'is_marred': True,
-#     'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
-#     'address': {
-#         'street': 'Space street',
-#         'zipcode': '02210'
-#     }
-#     }
-#  * Check if the person dictionary has skills key, if so print out the middle skill in the skills list.
-#  * Check if the person dictionary has skills key, if so check if the person has 'Python' skill and print out the result.
-#  * If a person skills has only JavaScript and React, print('He is a front end developer'), if the person skills has Node, Python, MongoDB, print('He is a backend developer'), if the person skills has React, Node and MongoDB, Print('He is a fullstack developer'), else print('unknown title') - for more accurate results more conditions can be nested!
+#  * Check if the person dictionary has skills key, 
+# if so check if the person has 'Python' skill
+#  and print out the result.
+
+if 'skills' in person:
+  if 'Python' in person['skills']:
+      print('Python exists')
+  else:
+      print('Not there')
+else:
+    print('Skills is not there')
+      
+
+#  * If a person skills has only JavaScript and React, 
+# print('He is a front end developer'), 
+# if the person skills has Node, Python, MongoDB, print('He is a backend developer'), 
+# if the person skills has React, Node and MongoDB, Print('He is a fullstack developer'),
+#  else print('unknown title') - for more accurate results more conditions can be nested!
+if 'skills' in person:
+    skills = person['skills']
+    if set(skills) == {'JavaScript', 'React'}:
+        print('He is a front end developer')
+    elif set(skills) == {'Node', 'Python', 'MongoDB'}:
+        print('He is a backend developer')
+    elif set(skills) == {'React', 'Node', 'MongoDB'}:
+        print('He is a fullstack developer')
+    else:
+        print('unknown title')
+else:
+    print('No skills found')
+ 
+
+
+
+
+
 #  * If the person is married and if he lives in Finland, print the information in the following format:
 #     Asabeneh Yetayeh lives in Finland. He is married.
+if 'is_marred' in person:
+    if ( person['is_marred'] and  (person['country']=='Finland')):
+         print(f"{person['first_name']} {person['last_name']} lives in {person['country']}. He is married.")
+
